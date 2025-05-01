@@ -64,8 +64,8 @@ export default {
   setup() {
     const data = reactive({
       loginData: {
-        telephone: "",
-        password: "",
+        telephone: "17189540780",
+        password: "Fu7",
       },
     });
     const router = useRouter();
