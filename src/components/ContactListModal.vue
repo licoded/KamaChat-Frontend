@@ -80,8 +80,8 @@
                         effect="customized"
                         :content="newContact.message"
                         placement="top"
-                        hide-after="0"
-                        enterable="false"
+                        :hide-after="0"
+                        :enterable="false"
                       >
                         <div>
                           {{ newContact.contact_name }}
