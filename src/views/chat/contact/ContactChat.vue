@@ -548,9 +548,10 @@
                         </div>
                       </div>
 
-                      <div class="left-message-content">
-                        {{ messageItem.content }}
-                      </div>
+                      <div
+                        class="left-message-content"
+                        v-html="processContent(messageItem.content)"
+                      ></div>
                     </div>
                   </div>
                   <div
@@ -649,9 +650,10 @@
                           </div>
                         </div>
                         <div style="display: flex; flex-direction: row-reverse">
-                          <div class="right-message-content">
-                            {{ messageItem.content }}
-                          </div>
+                          <div
+                            class="right-message-content"
+                            v-html="processContent(messageItem.content)"
+                          ></div>
                         </div>
                       </div>
                     </div>
@@ -928,6 +930,7 @@
                 maxlength="500"
                 :autosize="{ minRows: 7.9, maxRows: 7 }"
                 placeholder="请输入内容"
+                @keyup.enter.exact="sendMessage"
               />
             </div>
             <div class="chat-send">
@@ -2267,8 +2270,14 @@ export default {
       data.ableToReceiveOrRejectCall = false;
     };
 
+    const processContent = (raw_str) => {
+      const res_str = raw_str.replace(/\n/g, '<br/>');
+      return res_str;
+    };
+
     return {
       ...toRefs(data),
+      processContent,
       router,
       handleCreateGroup,
       showUserContactInfoModal,
