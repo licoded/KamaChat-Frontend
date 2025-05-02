@@ -9,6 +9,9 @@
         "src/*"
       ]
     },
+    "types": [
+      "element-plus/global"
+    ],
     "lib": [
       "esnext",
       "dom",
